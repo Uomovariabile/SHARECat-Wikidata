@@ -1,0 +1,10 @@
+#title:Items with SHARE Catalogue Author ID and IdRef ID
+# Wikidata Query Service short URL https://w.wiki/4QD9 
+# 16/11/2021: 121368 results
+
+select distinct ?item ?shareID ?idrefID 
+WHERE
+ {
+   ?item wdt:P3987 ?shareID; 
+         wdt:P269 ?idrefID.
+   }
