@@ -1,10 +1,16 @@
 #title:Items with SHARE Catalogue Author ID and IdRef ID
-# Wikidata Query Service short URL https://w.wiki/4QD9 
+# WQS short URL https://w.wiki/4QD9 (with IDs)
+# WQS short URL https://w.wiki/4QYK (with URLs)
 # 16/11/2021: 121368 results
+# 17/11/2021: 121379 results
 
-select distinct ?item ?shareID ?idrefID 
+select distinct ?item ?SHARE_URL ?idref_URL
 WHERE
  {
+   wd:P3987 wdt:P1630 ?formatterurl .
+   wd:P269 wdt:P1630 ?formatterurl2 .
    ?item wdt:P3987 ?shareID; 
          wdt:P269 ?idrefID.
+   BIND(IRI(REPLACE(?shareID, '^(.+)$', ?formatterurl)) AS ?SHARE_URL).
+   BIND(IRI(REPLACE(?idrefID, '^(.+)$', ?formatterurl2)) AS ?idref_URL).
    }
