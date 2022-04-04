@@ -1,0 +1,9 @@
+#title:SHARE Cat ID - deprecated rank per reindirizzamento
+SELECT ?item ?itemLabel ?SHAREid
+WHERE {
+ ?item p:P3987 ?st .
+ ?st wikibase:rank wikibase:DeprecatedRank .
+ ?st ps:P3987 ?SHAREid .
+ ?st pq:P2241 wd:Q45403344 .
+ SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
+}
